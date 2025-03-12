@@ -1,0 +1,38 @@
+<!-- Index page here -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index</title>
+  </head>
+  <body>
+    <h1>Read your latest blogs:</h1>
+
+    <!-- CRUD options -->
+    <div class="options">
+      <form action="/create" method="get">
+        <button type="submit">Create post</button>
+      </form>
+
+    </div>
+
+    <!-- CRUD forms -->
+    <div class="crud-forms">
+        <% if (locals.create) { %> 
+            <%- include('partials/create.ejs') %> 
+        <% } %>
+    </div>
+
+    <!-- Blog posts -->
+
+    <div class="blog-posts">
+        <% if (locals.blogPosts) { %>
+         <%- include('partials/blog-posts.ejs') %>
+        <% } else { %>
+         <h2>No posts found</h2>
+         <% } %>
+
+    </div>
+  </body>
+</html>
