@@ -4,35 +4,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Index</title>
+    <title>Blogs</title>
   </head>
   <body>
     <h1>Read your latest blogs:</h1>
 
-    <!-- CRUD options -->
-    <div class="options">
+    <!-- Display Create Blog -->
+    <div class="display-create-blog">
       <form action="/create" method="get">
         <button type="submit">Create post</button>
       </form>
-
     </div>
 
-    <!-- CRUD forms -->
-    <div class="crud-forms">
-        <% if (locals.create) { %> 
-            <%- include('partials/create.ejs') %> 
-        <% } %>
-    </div>
+    <!-- Create blog -->
+    <% if (locals.create) { %> <%- include('partials/create.ejs') %> <% } %>
 
     <!-- Blog posts -->
-
     <div class="blog-posts">
-        <% if (locals.blogPosts) { %>
-         <%- include('partials/blog-posts.ejs') %>
-        <% } else { %>
-         <h2>No posts found</h2>
-         <% } %>
+      <% if (locals.blogPosts && locals.blogPosts.length > 0) { %> <%-
+      include('partials/blog-posts.ejs') %> <% } else if (locals.update) { %>
 
+      <!-- Update blog -->
+      <%- include('partials/update.ejs') %> <% } else if (locals.delete) { %>
+
+      <!-- Delete blog -->
+      <%- include('partials/delete.ejs') %> <% } else { %>
+      <h2>No blogs found</h2>
+      <% } %>
     </div>
   </body>
 </html>

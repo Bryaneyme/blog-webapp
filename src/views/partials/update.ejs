@@ -1,0 +1,17 @@
+<form class="update-submit" action="/update/submit" method="post">
+  <h2>Update blog post for <%= slug %></h2>
+
+  <input type="text" name="slug" id="slug" value="<%= slug %>" hidden />
+
+  <div class="title">
+    <label for="newTitle">Title:</label>
+    <input type="text" name="newTitle" id="newTitle" />
+  </div>
+
+  <div class="content">
+    <label for="newContent">Content:</label>
+    <input type="text" name="newContent" id="newContent" />
+  </div>
+
+  <button type="submit">Update</button>
+</form>
