@@ -201,11 +201,17 @@ body {
     gap: 10px;
     margin: 0px;
 
-    max-width: 350px;
+    width: 350px;
     padding: 24px;
     border-radius: 12px;
     border: 1px solid #333;
     background-color: #1E1E1E;
+}
+
+.blog-content-container {
+    width: 100%;
+    overflow-wrap: break-word;
+    text-wrap:wrap;
 }
 
 .blog-content {

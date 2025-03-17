@@ -3,7 +3,9 @@
   <div class="blog-card">
     <h3 class="text-slug text-blue"><%= blogPosts[index].slug %></h3>
     <h2 class="text-title text-white"><%= blogPosts[index].title %></h2>
-    <p class="blog-content text-content text-soft-white "><%= blogPosts[index].content %></p>
+    <div class="blog-content-container">
+        <p class="blog-content text-content text-soft-white "><%= blogPosts[index].content %></p>
+    </div>
 
     <div class="input-button-container">
       <form class="update" action="/update" method="post">
