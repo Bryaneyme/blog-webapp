@@ -1,17 +1,36 @@
-<form class="update-submit" action="/update/submit" method="post">
-  <h2>Update blog post for <%= slug %></h2>
+<form class="update-blog" action="/update/submit" method="post">
+  <h3 class="text-slug text-blue"><%= slug %></h2>
 
   <input type="text" name="slug" id="slug" value="<%= slug %>" hidden />
 
-  <div class="title">
-    <label for="newTitle">Title:</label>
-    <input type="text" name="newTitle" id="newTitle" />
+  <div class="input-title-container">
+    <label class="text-title text-white" for="newTitle">Title:</label>
+    <input class="input-title text-title text-white" type="text" name="newTitle" id="newTitle" placeholder="New Blog Title..." value="<%= oldTitle %>" required/>
   </div>
 
-  <div class="content">
-    <label for="newContent">Content:</label>
-    <input type="text" name="newContent" id="newContent" />
+  <div class="input-content-container">
+    <label class="text-content" for="newContent">Content:</label>
+    <textarea
+      class="input-content text-content text-soft-white"
+      id="newContent"
+      name="newContent"
+      rows="20"
+      cols="40"
+      placeholder="Enter your content here..."
+      required
+    ><%= oldContent %></textarea>
+
   </div>
 
-  <button type="submit">Update</button>
+  <div class="input-button-container">
+    <div class="cancel">
+      <a href="/"><button class="background-grey text-button" type="button">Cancel</button></a>
+    </div>
+
+    <div class="submit">
+      <button class="submit background-yellow text-button" type="submit">Edit blog</button>
+    </div>
+  </div>
+
+  <!-- <button type="submit">Update</button> -->
 </form>

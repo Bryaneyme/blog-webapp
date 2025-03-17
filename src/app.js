@@ -10,17 +10,19 @@ let blogPosts = []
 app.set('view model', 'ejs');
 app.use(express.urlencoded({ extended: true }))
 
+app.use(express.static('public'))
+
 
 app.get("/", (req, res) => {
     console.log("Rendering index page...");
     console.log(blogPosts);
-    
+
     res.render('index.ejs', { blogPosts });
 })
 
 app.get("/create", (req, res) => {
     console.log("Rendering create page...");
-    res.render('index.ejs', { create: true, blogPosts })
+    res.render('index.ejs', { create: true })
 })
 
 function addBlogPost(req, res, next) {
@@ -42,7 +44,9 @@ app.post("/create/submit", addBlogPost, (req, res) => {
 
 app.post('/update', (req, res) => {
     console.log("Rendering 'update blog' route");
-    res.render('index.ejs', {update: true, slug: req.body['slug']});
+    console.log(req.body['oldContent']);
+    
+    res.render('index.ejs', { update: true, slug: req.body['slug'], oldTitle: req.body['oldTitle'], oldContent: req.body['oldContent'] });
 
 })
 
@@ -51,13 +55,13 @@ function updateBlogPost(req, res, next) {
     let blogIndex = blogPosts.findIndex((object) => {
         return object['slug'] === req.body['slug'];
     })
-    blogPosts[blogIndex] = {title: req.body['newTitle'], slug: req.body['slug'], content: req.body['newContent']}; 
+    blogPosts[blogIndex] = { title: req.body['newTitle'], slug: req.body['slug'], content: req.body['newContent'] };
     next()
 }
 
 app.post('/update/submit', updateBlogPost, (req, res) => {
     console.log("Handling POST request to update blog...");
-    res.render('index.ejs', {blogPosts})
+    res.render('index.ejs', { blogPosts })
 })
 
 function deleteBlogPost(req, res, next) {
@@ -73,7 +77,7 @@ function deleteBlogPost(req, res, next) {
 
 app.post('/delete/submit', deleteBlogPost, (req, res, next) => {
     console.log("Rendering 'delete blog' route...");
-    res.render('index.ejs', {blogPosts});
+    res.render('index.ejs', { blogPosts });
 })
 
 app.listen(PORT, () => {

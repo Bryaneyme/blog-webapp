@@ -1,33 +1,23 @@
-<% blogPosts.forEach(blog => { %>
+<div class="all-blogs">
+  <% for (let index = 0; index < blogPosts.length; index++) { %>
+  <div class="blog-card">
+    <h3 class="text-slug text-blue"><%= blogPosts[index].slug %></h3>
+    <h2 class="text-title text-white"><%= blogPosts[index].title %></h2>
+    <p class="blog-content text-content text-soft-white "><%= blogPosts[index].content %></p>
 
-<div class="blog-info">
-  <h3><%= blog['slug'] %></h3>
-  <h2><%= blog['title'] %></h2>
-  <p><%= blog['content'] %></p>
+    <div class="input-button-container">
+      <form class="update" action="/update" method="post">
+        <input type="hidden" name="slug" value="<%= blogPosts[index].slug %>" />
+        <input type="hidden" name="oldTitle" value="<%= blogPosts[index].title %>" />
+        <input type="hidden" name="oldContent" value="<%= blogPosts[index].content %>" />
+        <button class="background-yellow text-button" type="submit">Edit</button>
+      </form>
+
+      <form class="delete" action="/delete/submit" method="post">
+        <input type="hidden" name="slug" value="<%= blogPosts[index].slug %>" />
+        <button class="background-red text-button" type="submit">Delete</button>
+      </form>
+    </div>
+  </div>
+  <% } %>
 </div>
-
-<div class="buttons">
-  <form class="update" action="/update" method="post">
-    <input
-      type="text"
-      name="slug"
-      id="slug"
-      value="<%= blog['slug'] %>"
-      hidden
-    />
-    <button type="submit">Edit</button>
-  </form>
-
-  <form class="delete" action="/delete/submit" method="post">
-    <input
-      type="text"
-      name="slug"
-      id="slug"
-      value="<%= blog['slug'] %>"
-      hidden
-    />
-    <button type="submit">Delete</button>
-  </form>
-</div>
-
-<% }) %>

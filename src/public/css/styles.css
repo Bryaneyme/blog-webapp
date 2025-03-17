@@ -1,1 +1,274 @@
-/* CSS here */
+/* FONTS */
+
+h1, h2, h3, p {
+    margin: 0px
+}
+
+.text-title {
+    font-family: Poppins, sans-serif;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.text-title-smaller {
+    font-family: Roboto, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.text-slug {
+    font-family: Inter, sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.text-content {
+    font-family: Roboto;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.text-button {
+    font-family: Poppins, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+/* TEXT COLORS */
+
+.text-blue {
+    color: #4DB6AC
+}
+
+.text-low-blue {
+    color: #4DB6AC80
+}
+
+.text-white {
+    color: #FFF;
+}
+
+.text-soft-white {
+    color: #E0E0E0;
+}
+
+.text-low-soft-white {
+    color: #E0E0E080
+}
+
+.text-yellow {
+    color: #FFC107;
+}
+
+/* BACKGROUND COLORS */
+
+.background-blue {
+    background-color: #4DB6AC;
+}
+
+.background-yellow {
+    background-color: #FFC107;
+}
+
+.background-red {
+    background-color: #D32F2F;
+
+}
+
+.background-grey {
+    background-color: #666666;
+}
+
+/* ELEMENTS */
+
+a {
+    text-decoration: none;
+}
+
+button {
+    display: flex;
+    padding: 6px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+
+    border-radius: 50px;
+    color: #FFF;
+    border: none;
+}
+
+/* MAIN */
+
+body {
+    display: flex;
+    margin: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    color: #E0E0E0;
+    background-color: #121212;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-blog, .update-blog {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    padding: 24px;
+    align-items: flex-start;
+    gap: 24px;
+
+    border-radius: 12px;
+    border: 1px solid #333;
+    background: #1E1E1E;
+}
+
+.input-title-container, .input-slug-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.input-content-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px
+}
+
+.input-button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+}
+
+.input-slug, .input-title {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+}
+
+.input-slug, .input-title, .input-content {
+    padding: 10px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    background: #222;
+    min-width: 0;
+    resize: none;
+}
+
+.input-slug::placeholder {
+    color: #4DB6AC80
+}
+
+.all-blogs {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 24px;
+    justify-content: center;
+    align-items: start;
+    min-width: 350px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin: 0px;
+
+    max-width: 350px;
+    padding: 24px;
+    border-radius: 12px;
+    border: 1px solid #333;
+    background-color: #1E1E1E;
+}
+
+.blog-content {
+    white-space: pre-line;
+}
+
+.blog-card-no-page {
+    display: flex;
+    height: 600px;
+    width: 350px;
+    padding: 24px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 24px;
+
+    border-radius: 12px;
+    border: 1px solid #333;
+    background: #1E1E1E;
+}
+
+/* Button behaviour */
+button:hover {
+    cursor: pointer;
+}
+
+
+button.background-blue:hover {
+    background-color: #4DB6ACad;
+}
+
+button.background-blue:active {
+    background-color: #4DB6AC80;
+    transform: scale(0.95);
+}
+
+
+button.background-yellow:hover {
+    background-color: #ffc107ad;
+}
+
+button.background-yellow:active {
+    background-color: #FFC10780;
+    transform: scale(0.95);
+}
+
+
+button.background-red:hover {
+    background-color: #D32F2Fad;
+}
+
+button.background-red:active {
+    background-color: #D32F2F80;
+    transform: scale(0.95);
+}
+
+
+button.background-grey:hover {
+    background-color: #666666ad;
+}
+
+button.background-grey:active {
+    background-color: #66666680;
+    transform: scale(0.95);
+}
